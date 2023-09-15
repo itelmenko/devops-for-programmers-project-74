@@ -1,6 +1,9 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/itelmenko/devops-for-programmers-project-74/workflows/hexlet-check/badge.svg)](https://github.com/itelmenko/devops-for-programmers-project-74/actions)
 
+### Project tests status:
+![Project Actions Status](https://github.com/itelmenko/devops-for-programmers-project-74/actions/workflows/push.yml/badge.svg)
+
 ## Шаг 1
 
 Получаем код проекта
