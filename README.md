@@ -98,5 +98,6 @@ docker run -p 8080:8080 itelmenko/devops-for-programmers-project-74 npm run dev
 ## Шаг 4
 
 https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions
+https://github.com/marketplace/actions/docker-login
 
 
