@@ -1,7 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/itelmenko/devops-for-programmers-project-74/workflows/hexlet-check/badge.svg)](https://github.com/itelmenko/devops-for-programmers-project-74/actions)
 
-
 ## Шаг 1
 
 Получаем код проекта
@@ -27,7 +26,7 @@ docker run -it --user $(id -u):$(id -g) -w /root -v `pwd`/app:/root -p 8080:8080
 
 Docker Compose (Тесты)
 "Упакуем" наше приложение в Docker Compose.
-Для этого используем схему с двумя файлами (используем override).
+Для этого используем схему с двумя файлами (override).
 Основная конфигурация для тестирования продакшен-сборки, дополнительная (override)
 – для локальной разработки.
 
@@ -42,3 +41,24 @@ docker-compose up
 ```shell
 docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 ```
+
+## Шаг 3
+
+3. Создайте файл Dockerfile.production в корне проекта и добавьте туда полную установку приложения с зависимостями
+4. Переместите секцию volumes приложения из docker-compose.yml в docker-compose.override.yml
+5. Сделайте так, чтобы для разработки использовался Dockerfile, а для тестов Dockerfile.production
+
+Дев-вариант запускается так
+
+```shell
+
+docker-compose up --abort-on-container-exit
+```
+
+После его запуска тесты запускаются так:
+
+```shell
+docker-compose run app npm test
+```
+
+

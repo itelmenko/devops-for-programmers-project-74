@@ -5,9 +5,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.production
       args:
         - UID=${LOCAL_UID:-1000}
         - GID=${LOCAL_GID:-1000}
-    volumes:
-      - ./app:/app
