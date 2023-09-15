@@ -61,4 +61,42 @@ docker-compose up --abort-on-container-exit
 docker-compose run app npm test
 ```
 
+7. Добавьте в docker-compose.yml в приложение секцию image. Укажите здесь имя docker-hub-репозитория.
+
+Соберите образ для продакшена
+
+```shell
+docker-compose -f docker-compose.yml build app
+```
+
+8. Загрузите получившийся образ на Docker Hub
+
+```shell
+docker-compose -f docker-compose.yml push app
+```
+
+9. Проверьте работоспособность
+
+```shell
+docker run -p 8080:8080 itelmenko/devops-for-programmers-project-74 npm run dev
+
+```
+
+Результат:
+```
+....
+18:54:29 ✨ Server listening at http://0.0.0.0:8080
+18:54:32 ✨ incoming request GET xxx /
+18:54:32 ✨ request completed 134ms
+18:54:32 ✨ incoming request GET xxx /assets/css/bootstrap.min.css
+18:54:32 ✨ request completed 4ms
+
+```
+
+Приложение открывается в браузере
+
+## Шаг 4
+
+https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions
+
 
