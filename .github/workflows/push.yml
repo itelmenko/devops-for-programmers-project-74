@@ -16,6 +16,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_LOGIN }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Make env file
+        run: make env
+
       - name: Run tests
         run: make ci
 
