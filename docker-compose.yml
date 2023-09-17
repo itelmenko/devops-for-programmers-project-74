@@ -15,7 +15,8 @@ services:
       DATABASE_USERNAME: "${DATABASE_USERNAME}"
       DATABASE_PASSWORD: "${DATABASE_PASSWORD}"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: postgres:15.4-alpine3.18
@@ -23,3 +24,8 @@ services:
       POSTGRES_USER: "${DATABASE_USERNAME}"
       POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
       POSTGRES_DB: "${DATABASE_NAME}"
+    healthcheck:
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U ${DATABASE_USERNAME} -d ${DATABASE_NAME}'"]
+      interval: 1s
+      timeout: 3s
+      retries: 5

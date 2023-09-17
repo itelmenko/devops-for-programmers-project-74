@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8080:8080
-    command: bash -c 'sleep 3 && npm start'
+    command: npm start
     volumes:
       - ./app:/app
 
